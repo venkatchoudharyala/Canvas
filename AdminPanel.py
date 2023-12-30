@@ -36,7 +36,7 @@ def Rapo(Path):
 	except FileNotFoundError:
 		st.write("User Not Found")
 
-def download_directory(path):
+def download_directory(directory_path):
 	with zipfile.ZipFile("download.zip", "w", zipfile.ZIP_DEFLATED) as zipf:
 		for root, folders, files in os.walk(directory_path):
 			for file in files:

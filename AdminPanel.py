@@ -30,8 +30,8 @@ def Rapo(Path):
 			DisplayImage(Details["FilePath"])
 	except FileNotFoundError:
 		st.write("User Not Found")
+
 def DisplayImage(path):
-	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])
 	df = pd.read_excel(path)
 	print(df)
 	

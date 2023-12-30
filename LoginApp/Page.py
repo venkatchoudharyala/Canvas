@@ -5,6 +5,7 @@ import warnings
 import bcrypt
 import datetime
 import pytz
+import pandas as pd
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -81,8 +82,12 @@ def SignUpPage():
 					st.write("UserName Already Exists!! Try another..")
 
 			except FileNotFoundError:
+				column_names = ["FORMULA_IN_LATEX", "IMAGE_DATA_IN_PNG"]  # Replace with your actual column names
+				df = pd.DataFrame(columns=column_names)
+				path = "Files/" + UserName.strip() + ".xlsx"
+				df.to_excel(path, index=False)
 
-				Details = {"Name":UserName.strip(),"Chats":{},"Blocked":{UserName.strip():"1"},"Password":HashPasswd(Passd.strip()), "NoLog":"0", "TimeStamps":[]}
+				Details = {"Name":UserName.strip(),"FilePath":path,"Password":HashPasswd(Passd.strip()), "CompletedCount": "0", "NoLog":"0", "TimeStamps":[]}
 				UDetails = json.dumps(Details)
 				Path = os.path.join("UserAcc", UserName.strip() + ".ua")
 				with open(Path, "w") as File:

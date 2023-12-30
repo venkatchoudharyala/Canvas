@@ -42,11 +42,9 @@ def DisplayImage(path):
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
 		array = row["IMAGE_DATA_IN_PNG"]
-		'''
 		image_bytes = bytes(row["IMAGE_DATA_IN_PNG"], encoding = 'utf-8')
-		image_buffer = io.BytesIO(image_bytes)
-		pil_image = Image.open(image_buffer)'''
+		#image_buffer = io.BytesIO(image_bytes)
+		#pil_image = Image.open(image_buffer)
 
 		st.write(text)
-		st.write(np.array(array).shape)
-		st.image(np.array(array))
+		st.image(image_bytes)

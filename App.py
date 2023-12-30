@@ -86,7 +86,7 @@ def main():
 						json.dump(Details, File)
 					if st.button("Show"):
 						DisplayImage()
-					#st.experimental_rerun()
+					st.experimental_rerun()
 					#st.dataframe(df)
 
 def DisplayImage():

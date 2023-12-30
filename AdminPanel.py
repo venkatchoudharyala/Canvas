@@ -48,7 +48,7 @@ def download_directory(directory_path):
         file_name="Data.zip",
         mime="application/zip"
     	)
-download_directory("Files")
+#download_directory("Files")
 
 
 def DisplayImage(path):

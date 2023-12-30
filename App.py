@@ -49,8 +49,8 @@ canvas_result = st_canvas(
 if canvas_result.image_data is not None:
 	st.image(canvas_result.image_data)
 	if st.button("Save and Proceed"):
-		image = Image.open(canvas_result.get_image_file())  # Use get_image_file() for direct Pillow handling
-		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image}  # Store image object directly
+		#image = Image.open(canvas_result.get_image_file())  # Use get_image_file() for direct Pillow handling
+		#df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image}  # Store image object directly
 		st.dataframe(df.to_string()) 
 	    
 

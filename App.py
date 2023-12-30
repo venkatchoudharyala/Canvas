@@ -54,7 +54,7 @@ if canvas_result.image_data is not None:
 		pil_image.save(image_bytes, format="PNG")
 		
 		df = pd.read_excel("Files/DrawnImages.xlsx")
-		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes.getvalue()}
+		df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[CheckPoint][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
 		df.to_excel("Files/DrawnImages.xlsx", index=False)
 		st.dataframe(df)
 		

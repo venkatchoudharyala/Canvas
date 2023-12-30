@@ -60,8 +60,8 @@ def Collector(CheckPoint):
 			df.to_excel("Files/DrawnImages.xlsx", index=False)
 	
 			CheckPoint += 1
-			Collector(CheckPoint)
 			st.experimental_rerun()
+			Collector(CheckPoint)
 			#st.dataframe(df)
 Collector(CheckPoint)
 

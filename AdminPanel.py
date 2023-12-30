@@ -35,6 +35,20 @@ def Rapo(Path):
 	except FileNotFoundError:
 		st.write("User Not Found")
 
+def download_directory(path):
+	with zipfile.ZipFile("download.zip", "w", zipfile.ZIP_DEFLATED) as zipf:
+		for root, folders, files in os.walk(directory_path):
+			for file in files:
+				file_path = os.path.join(root, file)
+				zipf.write(file_path)
+download_directory("Files")
+st.download_button(
+        label="Download Directory",
+        data="download.zip",
+        file_name="Data.zip",
+        mime="application/zip"
+    )
+
 def DisplayImage(path):
 	df = pd.read_excel(path)
 	st.dataframe(df)

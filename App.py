@@ -71,7 +71,7 @@ def main():
 			# Image display
 			if canvas_result.image_data is not None:
 				st.write(type(canvas_result.image_data))
-				st.image(canvas_result.image_data)
+				st.image(canvas_result.image_data.tobytes())
 				if st.button("Save and Proceed"):
 					'''
 					pil_image = Image.fromarray(canvas_result.image_data)

@@ -66,7 +66,7 @@ Collector(CheckPoint)
 
 def DisplayImage():
 	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])
-	df = pd.read_excel("Files/DrawnImages.xlsx.xlsx")
+	df = pd.read_excel("Files/DrawnImages.xlsx")
 	print(df)
 	
 	for index, row in df.iterrows():

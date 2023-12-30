@@ -44,7 +44,7 @@ def Collector(CheckPoint):
 	    width = 1000,
 	    drawing_mode = drawing_mode,
 	    point_display_radius = 0,
-	    key = "canvas",
+
 	)
 	
 	# Image display
@@ -60,8 +60,8 @@ def Collector(CheckPoint):
 			df.to_excel("Files/DrawnImages.xlsx", index=False)
 	
 			CheckPoint += 1
-			st.experimental_rerun()
 			Collector(CheckPoint)
+			st.experimental_rerun()
 			#st.dataframe(df)
 Collector(CheckPoint)
 

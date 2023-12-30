@@ -32,7 +32,7 @@ def Rapo(Path):
 			UDetails = File.read()
 			Details = json.loads(UDetails)
 			st.write(Details)
-			#DisplayImage(Details["FilePath"])
+			DisplayImage(Details["FilePath"])
 	except FileNotFoundError:
 		st.write("User Not Found")
 
@@ -54,6 +54,7 @@ download_directory("Files")
 def DisplayImage(path):
 	df = pd.read_excel(path)
 	st.dataframe(df)
+	'''
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
 		array = row["IMAGE_DATA_IN_PNG"]
@@ -62,4 +63,4 @@ def DisplayImage(path):
 		#pil_image = Image.open(image_buffer)
 
 		st.write(text)
-		st.image(image_bytes)
+		st.image(image_bytes)'''

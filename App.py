@@ -73,7 +73,7 @@ def main():
 					pil_image.save(image_bytes, format="PNG")
 					
 					df = pd.read_excel("Files/DrawnImages.xlsx")
-					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[CheckPoint][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
+					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
 					df.to_excel("Files/DrawnImages.xlsx", index=False)
 
 					UserPath = "UserAcc/" + UserName.strip() + ".ua"

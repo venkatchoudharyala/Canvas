@@ -31,6 +31,7 @@ realtime_update = True
 FormulaSpace = st.empty()
 def FormulaUpdater(CheckPoint):
 	FormulaSpace.latex(FormList[CheckPoint][0])
+FormulaUpdater(CheckPoint)
 st.divider()
 
 # Create a canvas component
@@ -62,9 +63,8 @@ if canvas_result.image_data is not None:
 
 		CheckPoint += 1
 		FormulaUpdater(CheckPoint)
-		st.experimental_rerun()
+		#st.experimental_rerun()
 		#st.dataframe(df)
-Collector(CheckPoint)
 
 def DisplayImage():
 	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])

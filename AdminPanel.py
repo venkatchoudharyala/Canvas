@@ -41,7 +41,7 @@ def DisplayImage(path):
 	
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
-		array = np.fromstring(row["IMAGE_DATA_IN_PNG"], dtype='uint8')
+		array = row["IMAGE_DATA_IN_PNG"]
 		'''
 		image_bytes = bytes(row["IMAGE_DATA_IN_PNG"], encoding = 'utf-8')
 		image_buffer = io.BytesIO(image_bytes)

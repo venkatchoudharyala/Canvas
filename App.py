@@ -76,9 +76,9 @@ def main():
 					image_bytes = io.BytesIO()
 					pil_image.save(image_bytes, format="PNG")
 					
-					df = pd.read_excel("Files/DrawnImages.xlsx")
+					df = pd.read_excel(UserDetails["FilePath"])
 					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
-					df.to_excel("Files/DrawnImages.xlsx", index=False)
+					df.to_excel(UserDetails["FilePath"], index=False)
 
 					with open(UserPath, "r") as File:
 						Details = json.load(File)

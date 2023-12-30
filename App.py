@@ -19,6 +19,8 @@ def MathFormulae():
 	return Formulae.values.tolist()
 FormList = MathFormulae()
 
+CheckPoint = 349
+
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
 stroke_width = 3
@@ -26,42 +28,42 @@ stroke_color = "#000000"
 bg_color = "#eee"
 realtime_update = True
 
-def FormulaUpdater(CheckPoint):
+def Collector(CheckPoint)
 	st.latex(FormList[CheckPoint][0])
 	st.divider()
-CheckPoint = 349
-FormulaUpdater(CheckPoint)
-
-# Create a canvas component
-canvas_result = st_canvas(
-    fill_color = "rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-    stroke_width = stroke_width,
-    stroke_color = stroke_color,
-    background_color = bg_color,
-    background_image = None,
-    update_streamlit = realtime_update,
-    height = 250, 
-    width = 1000,
-    drawing_mode = drawing_mode,
-    point_display_radius = 0,
-    key = "canvas",
-)
-
-# Image display
-if canvas_result.image_data is not None:
-	st.image(canvas_result.image_data)
-	if st.button("Save and Proceed"):
-		pil_image = Image.fromarray(canvas_result.image_data)
-		image_bytes = io.BytesIO()
-		pil_image.save(image_bytes, format="PNG")
-		
-		df = pd.read_excel("Files/DrawnImages.xlsx")
-		df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[CheckPoint][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
-		df.to_excel("Files/DrawnImages.xlsx", index=False)
-
-		CheckPoint += 1
-		st.experimental_rerun()
-		st.dataframe(df)
+	
+	FormulaUpdater(CheckPoint)
+	
+	# Create a canvas component
+	canvas_result = st_canvas(
+	    fill_color = "rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+	    stroke_width = stroke_width,
+	    stroke_color = stroke_color,
+	    background_color = bg_color,
+	    background_image = None,
+	    update_streamlit = realtime_update,
+	    height = 250, 
+	    width = 1000,
+	    drawing_mode = drawing_mode,
+	    point_display_radius = 0,
+	    key = "canvas",
+	)
+	
+	# Image display
+	if canvas_result.image_data is not None:
+		st.image(canvas_result.image_data)
+		if st.button("Save and Proceed"):
+			pil_image = Image.fromarray(canvas_result.image_data)
+			image_bytes = io.BytesIO()
+			pil_image.save(image_bytes, format="PNG")
+			
+			df = pd.read_excel("Files/DrawnImages.xlsx")
+			df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[CheckPoint][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
+			df.to_excel("Files/DrawnImages.xlsx", index=False)
+	
+			CheckPoint += 1
+			Collector(CheckPoint)
+			#st.dataframe(df)
 
 def DisplayImage(x):		
 	image_bytes = io.BytesIO(x)

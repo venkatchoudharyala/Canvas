@@ -2,6 +2,7 @@ import pandas as pd
 from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
+import pandas as pd
 
 hide_st_style = """
                 <style>
@@ -11,6 +12,12 @@ hide_st_style = """
         """
 
 st.markdown(hide_st_style, unsafe_allow_html = True)
+
+CheckPoint = 0
+def MathFormulae():
+	Formulae = pd.read_excel("MathData/Math_Equations.xlsx")
+	return Formulae.values.tolist()
+FormList = MathFormulae()
 
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
@@ -22,7 +29,8 @@ realtime_update = True
 #Exported_Latex_Code = "a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)"
 #Display_Latex_Code = "r'''" + Exported_Latex_Code + "'''"
 #st.latex(Display_Latex_Code)
-st.latex(r'''a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)''')
+#st.latex(r'''a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)''')
+st.latex(FormList[CheckPoint])
 
 # Create a canvas component
 canvas_result = st_canvas(

@@ -27,6 +27,7 @@ bg_color = "#eee"
 realtime_update = True
 
 st.latex(FormList[CheckPoint][0])
+st.divider()
 
 # Create a canvas component
 canvas_result = st_canvas(

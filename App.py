@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import pandas as pd
 import io
+import base64
 
 hide_st_style = """
                 <style>
@@ -72,13 +73,12 @@ def DisplayImage():
 	print(df)
 	
 	for index, row in df.iterrows():
-	    text = row["FORMULA_IN_LATEX"]
-
-	    image_bytess = io.BytesIO(row["IMAGE_DATA_IN_PNG"])
-	    pil_imager = Image.open(image_bytess)
-
-	    st.write(text)
-	    st.image(pil_imager)
+		text = row["FORMULA_IN_LATEX"]
+		image_base64 = io.BytesIO(row["IMAGE_DATA_IN_PNG"])
+		image_bytess = base64.b64decode(image_base64)
+		pil_imager = Image.open(image_bytess)
+		st.write(text)
+		st.image(pil_imager)
 if st.button("Show"):
 	DisplayImage()
 

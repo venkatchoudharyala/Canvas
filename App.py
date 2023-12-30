@@ -33,6 +33,7 @@ canvas_result = st_canvas(
     background_image = None,
     update_streamlit = realtime_update,
     height = 150, 
+    width = 500,
     drawing_mode=drawing_mode,
     point_display_radius = 0,
     key = "canvas",

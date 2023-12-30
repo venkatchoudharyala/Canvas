@@ -27,8 +27,9 @@ stroke_color = "#000000"
 bg_color = "#eee"
 realtime_update = True
 
-st.latex(FormList[CheckPoint][0])
-st.divider()
+def FormulaUpdater(CheckPoint):
+	st.latex(FormList[CheckPoint][0])
+	st.divider()
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -58,7 +59,8 @@ if canvas_result.image_data is not None:
 		df.to_excel("Files/DrawnImages.xlsx", index=False)
 
 		CheckPoint += 1
-		#st.dataframe(df)
+		FormulaUpdater(CheckPoint)
+		st.dataframe(df)
 
 def DisplayImage(x):		
 	image_bytes = io.BytesIO(x)

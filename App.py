@@ -47,10 +47,6 @@ def main():
 			bg_color = "#eee"
 			realtime_update = True
 			
-			FormulaSpace = st.empty()
-			def FormulaUpdater(CheckPoint):
-				FormulaSpace.latex(FormList[CheckPoint][0])
-			FormulaUpdater(CheckPoint)
 			st.divider()
 			
 			# Create a canvas component

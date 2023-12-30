@@ -86,6 +86,8 @@ def main():
 					Details["CompletedCount"] += 1
 					with open(UserPath, "w") as File:
 						json.dump(Details, File)
+					if st.button("Show"):
+						DisplayImage()
 					#st.experimental_rerun()
 					#st.dataframe(df)
 
@@ -102,9 +104,6 @@ def DisplayImage():
 		pil_imager = Image.open(image_io)
 		st.write(text)
 		st.image(pil_imager)
-
-if st.button("Show"):
-	DisplayImage()
 
 if __name__ == "__main__":
 	main()

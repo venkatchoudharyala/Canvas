@@ -28,7 +28,7 @@ stroke_color = "#000000"
 bg_color = "#eee"
 realtime_update = True
 
-def Collector(CheckPoint)
+def Collector(CheckPoint):
 	st.latex(FormList[CheckPoint][0])
 	st.divider()
 	
@@ -65,9 +65,19 @@ def Collector(CheckPoint)
 			Collector(CheckPoint)
 			#st.dataframe(df)
 
-def DisplayImage(x):		
-	image_bytes = io.BytesIO(x)
-	pil_imager = Image.open(image_bytes)
-	st.image(pil_imager)
-#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])
+def DisplayImage():
+	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])
+	df = pd.read_excel("Files/DrawnImages.xlsx.xlsx")
+	print(df)
+	
+	for index, row in df.iterrows():
+	    text = row["FORMULA_IN_LATEX"]
+
+	    image_bytess = io.BytesIO(row["IMAGE_DATA_IN_PNG"])
+	    pil_imager = Image.open(image_bytess)
+
+	    st.write(text)
+	    st.image(pil_imager)
+if st.button("Show"):
+	DisplayImage()
 

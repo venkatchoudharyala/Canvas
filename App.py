@@ -64,6 +64,7 @@ def Collector(CheckPoint):
 			CheckPoint += 1
 			Collector(CheckPoint)
 			#st.dataframe(df)
+Collector(CheckPoint)
 
 def DisplayImage():
 	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])

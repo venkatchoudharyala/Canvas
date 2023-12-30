@@ -38,7 +38,7 @@ def main():
 			ap.Scrapper()
 		else:
 			CheckPoint = UserDetails["CompletedCount"]
-			st.latex(FormList[CheckPoint][0])
+			st.latex(FormList[int(CheckPoint)][0])
 			
 			# Specify canvas parameters in application
 			drawing_mode = "freedraw"
@@ -83,7 +83,8 @@ def main():
 					UserPath = "UserAcc/" + UserName.strip() + ".ua"
 					with open(UserPath, "r") as File:
 						Details = json.load(File)
-					Details["CompletedCount"] += 1
+					temp = int(Details["CompletedCount"]) + 1
+					Details["CompletedCount"] = str(temp)
 					with open(UserPath, "w") as File:
 						json.dump(Details, File)
 					if st.button("Show"):

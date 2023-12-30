@@ -38,13 +38,15 @@ def Rapo(Path):
 def DisplayImage(path):
 	df = pd.read_excel(path)
 	st.dataframe(df)
-
-	for index, row in df.iterrows():
-		text = row["FORMULA_IN_LATEX"]
-		array = row["IMAGE_DATA_IN_PNG"]
-		image_bytes = bytes(row["IMAGE_DATA_IN_PNG"], encoding = 'utf-8')
-		#image_buffer = io.BytesIO(image_bytes)
-		#pil_image = Image.open(image_buffer)
-
-		st.write(text)
-		st.image(image_bytes)
+	if "FORMULA_IN_LATEX" in df.columns:
+		for index, row in df.iterrows():
+			text = row["FORMULA_IN_LATEX"]
+			array = row["IMAGE_DATA_IN_PNG"]
+			image_bytes = bytes(row["IMAGE_DATA_IN_PNG"], encoding = 'utf-8')
+			#image_buffer = io.BytesIO(image_bytes)
+			#pil_image = Image.open(image_buffer)
+	
+			st.write(text)
+			st.image(image_bytes)
+	else:
+		st.write("No Image Drawn")

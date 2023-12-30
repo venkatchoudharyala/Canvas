@@ -41,8 +41,8 @@ def DisplayImage(path):
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
 		image_base64 = row["IMAGE_DATA_IN_PNG"]
-		image_bytess = base64.b64decode(image_base64)
-		image_io = io.BytesIO(image_bytess)
+		#image_bytess = base64.b64decode(image_base64)
+		image_io = io.BytesIO(image_base64)
 		pil_imager = Image.open(image_io)
 		st.write(text)
 		st.image(pil_imager)

@@ -40,9 +40,8 @@ def DisplayImage(path):
 	
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
-		image_base64 = row["IMAGE_DATA_IN_PNG"].encode('utf-8')
-		#image_bytess = base64.b64decode(image_base64)
-		#image_io = io.BytesIO(image_base64)
+		image_bytes = bytes(row["IMAGE_DATA_IN_PNG"])
+		#image_io = io.BytesIO(imag_bytes)
 		#pil_imager = Image.open(image_io)
-		st.write(text)
-		st.image(image_base64)
+		#st.write(text)
+		st.image(image_bytes)

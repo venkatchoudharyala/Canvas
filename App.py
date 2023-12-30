@@ -15,6 +15,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html = True)
 
 CheckPoint = 349
+FormulaUpdater(CheckPoint)
 def MathFormulae():
 	Formulae = pd.read_excel("MathData/Math_Equations.xlsx")
 	return Formulae.values.tolist()

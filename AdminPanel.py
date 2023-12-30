@@ -33,7 +33,7 @@ def Rapo(Path):
 
 def DisplayImage(path):
 	df = pd.read_excel(path)
-	print(df)
+	st.dataframe(df)
 	
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]

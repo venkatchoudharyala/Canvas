@@ -52,6 +52,6 @@ if canvas_result.image_data is not None:
 		image_data = canvas_result.image_data 
 		df = pd.DataFrame(columns=["text", "image"], dtype = object)
 		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_data}
-		st.dataframe(df.to_string()) 
+		st.dataframe(df) 
 	    
 

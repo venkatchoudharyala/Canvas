@@ -46,5 +46,6 @@ def DisplayImage(path):
 		image_bytes = bytes(row["IMAGE_DATA_IN_PNG"], encoding = 'utf-8')
 		image_buffer = io.BytesIO(image_bytes)
 		pil_image = Image.open(image_buffer)'''
+		st.write(type(array))
 		st.write(text)
 		st.image(array)

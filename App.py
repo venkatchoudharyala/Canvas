@@ -74,9 +74,9 @@ def DisplayImage():
 	
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
-		image_base64 = io.BytesIO(row["IMAGE_DATA_IN_PNG"])
+		image_base64 = row["IMAGE_DATA_IN_PNG"]
 		image_bytess = base64.b64decode(image_base64)
-		pil_imager = Image.open(image_bytess)
+		pil_imager = Image.open(io.BytesIO(image_bytess))
 		st.write(text)
 		st.image(pil_imager)
 if st.button("Show"):

@@ -38,6 +38,7 @@ def main():
 		if UserName == "Admin":
 			ap.Scrapper()
 		else:
+			UserPath = "UserAcc/" + UserName.strip() + ".ua"
 			with open(UserPath, "r") as File:
 				Details = json.load(File)
 			CheckPoint = Details["CompletedCount"]
@@ -79,7 +80,6 @@ def main():
 					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
 					df.to_excel("Files/DrawnImages.xlsx", index=False)
 
-					UserPath = "UserAcc/" + UserName.strip() + ".ua"
 					with open(UserPath, "r") as File:
 						Details = json.load(File)
 					temp = int(Details["CompletedCount"]) + 1

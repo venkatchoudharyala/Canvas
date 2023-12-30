@@ -38,7 +38,8 @@ def Rapo(Path):
 def DisplayImage(path):
 	df = pd.read_excel(path)
 	st.dataframe(df)
-	
+	k = "hi"
+	st.write(type(k))
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
 		array = row["IMAGE_DATA_IN_PNG"]

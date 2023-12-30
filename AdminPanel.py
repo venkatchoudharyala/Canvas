@@ -3,6 +3,7 @@ import json
 import os
 import pandas as pd
 import base64
+import io
 
 st.set_page_config(initial_sidebar_state = "collapsed")
 

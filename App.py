@@ -30,7 +30,7 @@ realtime_update = True
 #Display_Latex_Code = "r'''" + Exported_Latex_Code + "'''"
 #st.latex(Display_Latex_Code)
 #st.latex(r'''a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)''')
-st.latex(FormList[CheckPoint])
+st.markdown(FormList[CheckPoint])
 
 # Create a canvas component
 canvas_result = st_canvas(

@@ -5,6 +5,7 @@ import pandas as pd
 import base64
 import io
 from PIL import Image
+import numpy as np
 
 st.set_page_config(initial_sidebar_state = "collapsed")
 

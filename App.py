@@ -6,7 +6,7 @@ import pandas as pd
 
 hide_st_style = """
                 <style>
-		.CanvasToolbar_enabled__2bOtL, .CanvasToolbar_invertx__2gc2O {display: none;}
+		.CanvasToolbar_enabled__2bOtL {display: none;}
                 header {visibility: hidden;}
                 footer {visibility: hidden;}
         </style>
@@ -14,7 +14,7 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html = True)
 
-CheckPoint = 99
+CheckPoint = 349
 def MathFormulae():
 	Formulae = pd.read_excel("MathData/Math_Equations.xlsx")
 	return Formulae.values.tolist()

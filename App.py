@@ -14,7 +14,7 @@ st.markdown(hide_st_style, unsafe_allow_html = True)
 
 # Specify canvas parameters in application
 drawing_mode = st.sidebar.selectbox(
-    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
+    "Drawing tool:", ("freedraw", "point", "line", "rect", "circle", "transform")
 )
 
 stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)

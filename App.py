@@ -26,7 +26,7 @@ stroke_color = "#000000"
 bg_color = "#eee"
 realtime_update = True
 
-st.markdown(FormList[CheckPoint][0])
+st.image(FormList[CheckPoint][0])
 
 # Create a canvas component
 canvas_result = st_canvas(

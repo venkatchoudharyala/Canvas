@@ -6,7 +6,6 @@ import pandas as pd
 
 hide_st_style = """
                 <style>
-		.CanvasToolbar_enabled__2bOtL {display: none;}
                 header {visibility: hidden;}
                 footer {visibility: hidden;}
         </style>
@@ -40,13 +39,17 @@ canvas_result = st_canvas(
     update_streamlit = realtime_update,
     height = 250, 
     width = 1000,
-    drawing_mode=drawing_mode,
+    drawing_mode = drawing_mode,
     point_display_radius = 0,
     key = "canvas",
 )
 
 # Image display
-if canvas_result.image_data is not None and st.button("Review"):
-    with st.container():
-	    st.image(canvas_result.image_data)
+if canvas_result.image_data is not None):
+	st.image(canvas_result.image_data)
+	if st.button("Save and Proceed"):
+		df = pd.DataFrame(columns=["text", "image"])
+		df = df.append({"text": FormList[CheckPoint][0], "image": image_bytes}, ignore_index=True)
+		st.dataframe(df)
+	    
 

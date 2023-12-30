@@ -3,6 +3,15 @@ from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
+hide_st_style = """
+                <style>
+                header {visibility: hidden;}
+                footer {visibility: hidden;}
+        </style>
+        """
+
+st.markdown(hide_st_style, unsafe_allow_html = True)
+
 # Specify canvas parameters in application
 drawing_mode = st.sidebar.selectbox(
     "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")

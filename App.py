@@ -56,7 +56,9 @@ if canvas_result.image_data is not None:
 		df = pd.read_excel("Files/DrawnImages.xlsx")
 		df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[CheckPoint][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
 		df.to_excel("Files/DrawnImages.xlsx", index=False)
-		st.dataframe(df)
+
+		CheckPoint += 1
+		#st.dataframe(df)
 
 def DisplayImage(x):		
 	image_bytes = io.BytesIO(x)

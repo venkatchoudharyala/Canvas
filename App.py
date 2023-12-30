@@ -47,4 +47,9 @@ canvas_result = st_canvas(
 # Image display
 if canvas_result.image_data is not None:
     st.image(canvas_result.image_data)
-
+if st.button("Enter Full Screen"):
+    st.markdown("""
+    <script>
+    document.documentElement.requestFullscreen();
+    </script>
+    """, unsafe_allow_html=True)

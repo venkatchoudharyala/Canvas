@@ -3,6 +3,7 @@ from PIL import Image
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import pandas as pd
+import numpy as np
 
 hide_st_style = """
                 <style>
@@ -48,8 +49,9 @@ canvas_result = st_canvas(
 if canvas_result.image_data is not None:
 	st.image(canvas_result.image_data)
 	if st.button("Save and Proceed"):
-		df = pd.DataFrame(columns=["text", "image"])
-		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": canvas_result.image_data}
+		df = pd.DataFrame(columns=["text", "image"], dtype = object)
+		image_bytes = np.frombuffer(canvas_result.image_data, dtype=np.uint8)
+		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes}
 		st.dataframe(df)
 	    
 

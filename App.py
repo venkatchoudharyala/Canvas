@@ -76,7 +76,8 @@ def DisplayImage():
 		text = row["FORMULA_IN_LATEX"]
 		image_base64 = row["IMAGE_DATA_IN_PNG"]
 		image_bytess = base64.b64decode(image_base64)
-		pil_imager = Image.open(io.BytesIO(image_bytess))
+		image_io = io.BytesIO(image_bytess)
+		pil_imager = Image.open(image_io)
 		st.write(text)
 		st.image(pil_imager)
 if st.button("Show"):

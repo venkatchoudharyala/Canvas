@@ -70,6 +70,7 @@ def main():
 			
 			# Image display
 			if canvas_result.image_data is not None:
+				st.write(canvas_result.image_data)
 				st.image(canvas_result.image_data)
 				if st.button("Save and Proceed"):
 					'''

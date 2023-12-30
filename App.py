@@ -6,7 +6,7 @@ import pandas as pd
 
 hide_st_style = """
                 <style>
-		.CanvasToolbar_enabled__2bOtL CanvasToolbar_invertx__2gc2O{visibility: hidden;}
+		.CanvasToolbar_enabled__2bOtL, .CanvasToolbar_invertx__2gc2O {display: none;}
                 header {visibility: hidden;}
                 footer {visibility: hidden;}
         </style>

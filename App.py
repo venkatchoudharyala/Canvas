@@ -25,7 +25,7 @@ drawing_mode = "freedraw"
 stroke_width = 3
 stroke_color = "#000000"
 bg_color = "#eee"
-realtime_update = False
+realtime_update = True
 
 st.latex(FormList[CheckPoint][0])
 st.divider()

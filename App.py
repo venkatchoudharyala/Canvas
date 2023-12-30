@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import pandas as pd
 import numpy as np
+import io
 
 hide_st_style = """
                 <style>

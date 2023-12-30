@@ -42,13 +42,14 @@ def download_directory(directory_path):
 			for file in files:
 				file_path = os.path.join(root, file)
 				zipf.write(file_path)
-download_directory("Files")
-st.download_button(
+	st.download_button(
         label="Download Directory",
         data="download.zip",
         file_name="Data.zip",
         mime="application/zip"
-    )
+    	)
+download_directory("Files")
+
 
 def DisplayImage(path):
 	df = pd.read_excel(path)

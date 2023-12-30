@@ -72,12 +72,13 @@ def main():
 			if canvas_result.image_data is not None:
 				st.image(canvas_result.image_data)
 				if st.button("Save and Proceed"):
+					'''
 					pil_image = Image.fromarray(canvas_result.image_data)
 					image_bytes = io.BytesIO()
 					pil_image.save(image_bytes, format="JPEG")
 					
-					df = pd.read_excel(UserDetails["FilePath"])
-					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
+					df = pd.read_excel(UserDetails["FilePath"])'''
+					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": str(canvas_result.image_data)}
 					df.to_excel(UserDetails["FilePath"], index=False)
 
 					with open(UserPath, "r") as File:

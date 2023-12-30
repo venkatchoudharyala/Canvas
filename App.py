@@ -49,11 +49,12 @@ canvas_result = st_canvas(
 if canvas_result.image_data is not None:
 	st.image(canvas_result.image_data)
 	if st.button("Save and Proceed"):
-		image_data = canvas_result.image_data 
-		df = pd.DataFrame(columns=["text", "image"], dtype = object)
-		st.write(type(image_data))
-		st.write(image_data)
-		#df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_data}
-		#st.dataframe(df) 
+		pil_image = Image.fromarray(canvas_result.image_data)
+        	image_bytes = io.BytesIO()
+        	pil_image.save(image_bytes, format="PNG")
+        	df = pd.DataFrame(columns=["text", "image"])
+        	df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes.getvalue()}
+        	df.to_excel("output.xlsx", index=False)
+        	st.dataframe(df) 
 	    
 

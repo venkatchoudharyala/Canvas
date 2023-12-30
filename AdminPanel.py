@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import os
 import pandas as pd
+import base64
 
 st.set_page_config(initial_sidebar_state = "collapsed")
 

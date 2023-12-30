@@ -52,9 +52,10 @@ if canvas_result.image_data is not None:
 		pil_image = Image.fromarray(canvas_result.image_data)
 		image_bytes = io.BytesIO()
 		pil_image.save(image_bytes, format="PNG")
-		df = pd.DataFrame(columns=["text", "image"])
+		
+		df = pd.read_excel("Files/DrawnImages.xlsx")
 		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes.getvalue()}
-		df.to_excel("output.xlsx", index=False)
+		df.to_excel("Files/DrawnImages.xlsx", index=False)
 		st.dataframe(df)
 		
 		'''image_bytes = io.BytesIO(df["image"][0])

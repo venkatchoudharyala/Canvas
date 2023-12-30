@@ -50,8 +50,8 @@ if canvas_result.image_data is not None:
 	st.image(canvas_result.image_data)
 	if st.button("Save and Proceed"):
 		df = pd.DataFrame(columns=["text", "image"], dtype = object)
-		image_bytes = np.frombuffer(canvas_result.image_data, dtype=np.uint8)
-		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes}
+		#image_bytes = np.frombuffer(canvas_result.image_data, dtype=np.uint8)
+		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": canvas_result.image_data}
 		st.dataframe(df)
 	    
 

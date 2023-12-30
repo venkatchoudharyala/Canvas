@@ -45,29 +45,7 @@ canvas_result = st_canvas(
 )
 
 # Image display
-if canvas_result.image_data is not None:
-    st.image(canvas_result.image_data)
-def enter_fullscreen():
-    try:
-        # Try the current method
-        st.markdown("""
-        <script>
-        document.documentElement.requestFullscreen();
-        </script>
-        """, unsafe_allow_html=True)
-    except:
-        # Fallback to alternative method if requestFullscreen fails
-        st.markdown("""
-        <script>
-        if (window.screenTop && window.screenTop.window) {
-            window.screenTop.window.document.documentElement.requestFullscreen();
-        } else {
-            window.document.documentElement.requestFullscreen();
-        }
-        </script>
-        """, unsafe_allow_html=True)
-
-# Button to trigger full-screen
-if st.button("Enter Full Screen"):
-    enter_fullscreen()
+if canvas_result.image_data is not None and st.button("Review"):
+    with st.container():
+	    st.image(canvas_result.image_data)
 

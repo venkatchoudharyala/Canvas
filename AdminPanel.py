@@ -32,7 +32,7 @@ def Rapo(Path):
 			UDetails = File.read()
 			Details = json.loads(UDetails)
 			st.write(Details)
-			DisplayImage(Details["FilePath"])
+			#DisplayImage(Details["FilePath"])
 	except FileNotFoundError:
 		st.write("User Not Found")
 

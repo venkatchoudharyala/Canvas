@@ -82,7 +82,7 @@ def SignUpPage():
 					st.write("UserName Already Exists!! Try another..")
 
 			except FileNotFoundError:
-				df = pd.DataFrame(["FORMULA_IN_LATEX", "IMAGE_DATA_IN_PNG"])
+				df = pd.DataFrame(columns = ["FORMULA_IN_LATEX", "IMAGE_DATA_IN_PNG"])
 				path = "Files/" + UserName.strip() + ".xlsx"
 				df.to_excel(path, index=False)
 

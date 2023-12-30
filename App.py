@@ -14,8 +14,6 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html = True)
 
-CheckPoint = 349
-FormulaUpdater(CheckPoint)
 def MathFormulae():
 	Formulae = pd.read_excel("MathData/Math_Equations.xlsx")
 	return Formulae.values.tolist()
@@ -31,6 +29,8 @@ realtime_update = True
 def FormulaUpdater(CheckPoint):
 	st.latex(FormList[CheckPoint][0])
 	st.divider()
+CheckPoint = 349
+FormulaUpdater(CheckPoint)
 
 # Create a canvas component
 canvas_result = st_canvas(

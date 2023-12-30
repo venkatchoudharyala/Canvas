@@ -51,7 +51,9 @@ if canvas_result.image_data is not None:
 	if st.button("Save and Proceed"):
 		image_data = canvas_result.image_data 
 		df = pd.DataFrame(columns=["text", "image"], dtype = object)
-		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_data}
-		st.dataframe(df) 
+		st.write(type(image_data))
+		st.write(image_data)
+		#df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_data}
+		#st.dataframe(df) 
 	    
 

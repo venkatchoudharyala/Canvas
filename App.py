@@ -13,7 +13,7 @@ hide_st_style = """
 
 st.markdown(hide_st_style, unsafe_allow_html = True)
 
-CheckPoint = 89
+CheckPoint = 100
 def MathFormulae():
 	Formulae = pd.read_excel("MathData/Math_Equations.xlsx")
 	return Formulae.values.tolist()
@@ -26,7 +26,7 @@ stroke_color = "#000000"
 bg_color = "#eee"
 realtime_update = True
 
-st.write(FormList[CheckPoint][0])
+st.subheader(FormList[CheckPoint][0])
 
 # Create a canvas component
 canvas_result = st_canvas(

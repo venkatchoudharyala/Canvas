@@ -61,6 +61,7 @@ def Collector(CheckPoint):
 	
 			CheckPoint += 1
 			Collector(CheckPoint)
+			st.experimental_rerun()
 			#st.dataframe(df)
 Collector(CheckPoint)
 

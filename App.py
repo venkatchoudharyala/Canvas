@@ -16,6 +16,7 @@ st.markdown(hide_st_style, unsafe_allow_html = True)
 drawing_mode = "freedraw"
 stroke_width = 3
 stroke_color = "#000000"
+bg_color = "#eee"
 realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
 Exported_Latex_Code = "a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)"

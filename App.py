@@ -13,41 +13,29 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html = True)
 
 # Specify canvas parameters in application
-drawing_mode = st.sidebar.selectbox(
-    "Drawing tool:", ("point", "freedraw", "line", "rect", "circle", "transform")
-)
-
-stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
-if drawing_mode == 'point':
-    point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
-stroke_color = st.sidebar.color_picker("Stroke color hex: ")
-bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
-bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
+drawing_mode = "freedraw"
 
 realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
-
+Exported_Latex_Code = "a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)"
+Display_Latex_Code = "r'''" + Exported_Latex_Code + "'''"
+st.latex(Display_Latex_Code)
 
 # Create a canvas component
 canvas_result = st_canvas(
-    fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-    stroke_width=stroke_width,
-    stroke_color=stroke_color,
-    background_color=bg_color,
-    background_image=Image.open(bg_image) if bg_image else None,
-    update_streamlit=realtime_update,
+    fill_color = "rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+    stroke_width = stroke_width,
+    stroke_color = stroke_color,
+    background_color = bg_color,
+    background_image = None,
+    update_streamlit = realtime_update,
     height=150,
     drawing_mode=drawing_mode,
-    point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-    key="canvas",
+    point_display_radius = 0,
+    key = "canvas",
 )
 
-# Do something interesting with the image data and paths
+# Image display
 if canvas_result.image_data is not None:
-	k = 0
-    #st.image(canvas_result.image_data)
-if canvas_result.json_data is not None:
-    objects = pd.json_normalize(canvas_result.json_data["objects"]) # need to convert obj to str because PyArrow
-    for col in objects.select_dtypes(include=['object']).columns:
-        objects[col] = objects[col].astype("str")
-    st.dataframe(objects)
+    st.image(canvas_result.image_data)
+

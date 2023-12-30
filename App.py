@@ -32,8 +32,6 @@ def Collector(CheckPoint):
 	st.latex(FormList[CheckPoint][0])
 	st.divider()
 	
-	FormulaUpdater(CheckPoint)
-	
 	# Create a canvas component
 	canvas_result = st_canvas(
 	    fill_color = "rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity

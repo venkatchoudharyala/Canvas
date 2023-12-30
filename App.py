@@ -45,7 +45,7 @@ canvas_result = st_canvas(
 )
 
 # Image display
-if canvas_result.image_data is not None):
+if canvas_result.image_data is not None:
 	st.image(canvas_result.image_data)
 	if st.button("Save and Proceed"):
 		df = pd.DataFrame(columns=["text", "image"])

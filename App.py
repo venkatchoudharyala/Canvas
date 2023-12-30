@@ -58,7 +58,7 @@ if canvas_result.image_data is not None:
 		df.to_excel("Files/DrawnImages.xlsx", index=False)
 		st.dataframe(df)
 
-def DisplayImage(x)		
+def DisplayImage(x):		
 	image_bytes = io.BytesIO(x)
 	pil_imager = Image.open(image_bytes)
 	st.image(pil_imager)

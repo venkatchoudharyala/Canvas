@@ -14,7 +14,7 @@ st.markdown(hide_st_style, unsafe_allow_html = True)
 
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
-
+stroke_width = 3
 realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
 Exported_Latex_Code = "a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k = a \left(\frac{1-r^{n}}{1-r}\right)"

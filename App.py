@@ -74,7 +74,7 @@ def main():
 				if st.button("Save and Proceed"):
 					pil_image = Image.fromarray(canvas_result.image_data)
 					image_bytes = io.BytesIO()
-					pil_image.save(image_bytes, format="PNG")
+					pil_image.save(image_bytes, format="JPEG")
 					
 					df = pd.read_excel(UserDetails["FilePath"])
 					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}

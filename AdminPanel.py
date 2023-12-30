@@ -48,4 +48,5 @@ def DisplayImage(path):
 		pil_image = Image.open(image_buffer)'''
 
 		st.write(text)
+		st.write(np.array(array).shape)
 		st.image(np.array(array))

@@ -38,7 +38,9 @@ def main():
 		if UserName == "Admin":
 			ap.Scrapper()
 		else:
-			CheckPoint = UserDetails["CompletedCount"]
+			with open(UserPath, "r") as File:
+				Details = json.load(File)
+			CheckPoint = Details["CompletedCount"]
 			st.latex(FormList[int(CheckPoint)][0])
 			
 			# Specify canvas parameters in application

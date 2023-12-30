@@ -86,25 +86,9 @@ def main():
 					Details["CompletedCount"] = str(temp)
 					with open(UserPath, "w") as File:
 						json.dump(Details, File)
-					if st.button("Show"):
-						DisplayImage()
+					
 					st.experimental_rerun()
-					#st.dataframe(df)
-
-def DisplayImage():
-	#DisplayImage(df["IMAGE_DATA_IN_PNG"][0])
-	df = pd.read_excel("Files/DrawnImages.xlsx")
-	print(df)
-	
-	for index, row in df.iterrows():
-		text = row["FORMULA_IN_LATEX"]
-		image_base64 = row["IMAGE_DATA_IN_PNG"]
-		image_bytess = base64.b64decode(image_base64)
-		image_io = io.BytesIO(image_bytess)
-		pil_imager = Image.open(image_io)
-		st.write(text)
-		st.image(pil_imager)
-
+					
 if __name__ == "__main__":
 	main()
 

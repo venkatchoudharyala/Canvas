@@ -60,7 +60,7 @@ if canvas_result.image_data is not None:
 		df.to_excel("Files/DrawnImages.xlsx", index=False)
 
 		CheckPoint += 1
-		FormulaUpdater(CheckPoint)
+		st.experimental_rerun()
 		st.dataframe(df)
 
 def DisplayImage(x):		

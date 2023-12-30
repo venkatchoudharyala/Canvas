@@ -57,5 +57,8 @@ if canvas_result.image_data is not None:
 		df.loc[len(df.index)] = {"text": FormList[CheckPoint][0], "image": image_bytes.getvalue()}
 		df.to_excel("output.xlsx", index=False)
 		st.dataframe(df) 
+		image_bytes = io.BytesIO(df["image"][0])
+		pil_image = Image.open(image_bytes)
+		st.image(pil_image)
 	    
 

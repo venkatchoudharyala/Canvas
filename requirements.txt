@@ -1,3 +1,4 @@
 streamlit-drawable-canvas
 openpyxl
 bcrypt
+imageio

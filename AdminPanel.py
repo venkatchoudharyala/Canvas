@@ -56,7 +56,7 @@ def DisplayImage(path):
 	st.dataframe(df)
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
-		ImgPath = row["IMAGE_File_PATH"]
+		ImgPath = row["IMAGE_FILE_PATH"]
 
 		st.latex(text)
 		st.image(ImgPath)

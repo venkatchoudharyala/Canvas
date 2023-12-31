@@ -85,6 +85,8 @@ def SignUpPage():
 				df = pd.DataFrame(columns = ["FORMULA_IN_LATEX", "IMAGE_DATA_IN_PNG"])
 				path = "Files/" + UserName.strip() + ".xlsx"
 				df.to_excel(path, index=False)
+				ImageDir = "Images/" + UserName.strip()
+				os.makedirs(ImageDir, exist_ok = False)
 
 				Details = {"Name":UserName.strip(),"FilePath":path,"Password":HashPasswd(Passd.strip()), "CompletedCount": "0", "NoLog":"0", "TimeStamps":[]}
 				UDetails = json.dumps(Details)

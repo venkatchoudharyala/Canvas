@@ -81,6 +81,9 @@ def main():
 					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_FILE_PATH":ImgFile}
 					df.to_excel(UserDetails["FilePath"], index=False)
 
+					canvas_result.json_data = '{"objects": []}'  # Clear the canvas data
+					canvas_result.image_data = None  # Clear the canvas image
+
 					with open(UserPath, "r") as File:
 						Details = json.load(File)
 					temp = int(Details["CompletedCount"]) + 1

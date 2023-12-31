@@ -54,7 +54,6 @@ def download_directory(directory_path):
 def DisplayImage(path):
 	df = pd.read_excel(path)
 	st.dataframe(df)
-	'''
 	for index, row in df.iterrows():
 		text = row["FORMULA_IN_LATEX"]
 		ImgPath = row["IMAGE_File_PATH"]

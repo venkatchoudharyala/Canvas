@@ -5,6 +5,7 @@ from streamlit_drawable_canvas import st_canvas
 import pandas as pd
 import io
 import base64
+import imageio
 from LoginApp import Page
 import AdminPanel as ap
 import json
@@ -72,12 +73,11 @@ def main():
 			if canvas_result.image_data is not None:
 				st.image(canvas_result.image_data)
 				if st.button("Save and Proceed"):
-					pil_image = Image.fromarray(canvas_result.image_data)
-					image_bytes = io.BytesIO()
-					pil_image.save(image_bytes, format="PNG")
-					
+					data = canvas_result.image_data
+					ImgFile = "Images/" + Details["Name"] + CheckPoint + ".png"
+					imageio.imwrite(ImgFile, data.astype(np.uint8))
 					df = pd.read_excel(UserDetails["FilePath"])
-					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_DATA_IN_PNG": image_bytes.getvalue()}
+					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_FILE_PATH":ImgFile}
 					df.to_excel(UserDetails["FilePath"], index=False)
 
 					with open(UserPath, "r") as File:

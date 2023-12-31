@@ -75,7 +75,7 @@ def main():
 				st.image(canvas_result.image_data)
 				if st.button("Save and Proceed"):
 					data = canvas_result.image_data
-					ImgFile = "Images/" + Details["Name"] + CheckPoint + ".png"
+					ImgFile = "Images/" + Details["Name"] + "/" + CheckPoint + ".png"
 					imageio.imwrite(ImgFile, data.astype(np.uint8))
 					df = pd.read_excel(UserDetails["FilePath"])
 					df.loc[len(df.index)] = {"FORMULA_IN_LATEX": FormList[int(CheckPoint)][0], "IMAGE_FILE_PATH":ImgFile}
